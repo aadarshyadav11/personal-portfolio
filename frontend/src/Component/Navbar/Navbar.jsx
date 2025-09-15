@@ -10,8 +10,8 @@ function Navbar() {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-blue-600">
-              MyPortfolio
+            <Link to="/" className="text-3xl font-bold text-blue-600">
+              Aadarsh Yadav
             </Link>
           </div>
 
@@ -69,6 +69,13 @@ function Navbar() {
             onClick={() => setIsOpen(false)}
           >
             Projects
+          </Link>
+          <Link
+            to="/blogs"
+            className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            onClick={() => setIsOpen(false)}
+          >
+            Blogs
           </Link>
           <Link
             to="/contact"

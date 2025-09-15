@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './Component/Navbar/Navbar';
-import Home from './Component/Home/Home';
 import About from './Component/About/About';
 import Project from './Component/Projects/Project';
 import Blogs from './Component/Blogs/Blogs';
 import Contact from './Component/Contact/Contact';
+import Home from './Pages/Home/Home';
+import Footer from './Component/Footer/Footer';
+
 
 // import './App.css'
 
@@ -26,6 +28,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
+        <Footer />
       </Router>
     
     </>
