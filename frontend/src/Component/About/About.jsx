@@ -1,4 +1,5 @@
-import { FaReact, FaNodeJs, FaDatabase, FaGithub } from "react-icons/fa";
+import {FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaServer, FaPython, FaJava, FaGithub, FaCode } from "react-icons/fa";
+import {SiMongodb, SiMysql} from 'react-icons/si'
 
 export default function About() {
   return (
@@ -34,6 +35,18 @@ export default function About() {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
             <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <FaHtml5 size={32} className="text-blue-500 mb-2" />
+              <p className="text-sm font-medium">HTML</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <FaCss3 size={32} className="text-blue-500 mb-2" />
+              <p className="text-sm font-medium">CSS</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <FaJs size={32} className="text-amber-300 mb-2" />
+              <p className="text-sm font-medium">JavaScript</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
               <FaReact size={32} className="text-blue-500 mb-2" />
               <p className="text-sm font-medium">React.js</p>
             </div>
@@ -42,8 +55,28 @@ export default function About() {
               <p className="text-sm font-medium">Node.js</p>
             </div>
             <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
-              <FaDatabase size={32} className="text-yellow-600 mb-2" />
-              <p className="text-sm font-medium">MongoDB</p>
+              <FaServer size={32} className="text-green-600 mb-2" />
+              <p className="text-sm font-medium">Express.js</p>
+            </div>
+             <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <SiMongodb size={32} className="text-yellow-600 mb-2" />
+              <p className="text-sm font-medium">MongoDb</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <SiMysql size={32} className="text-yellow-500 mb-2" />
+              <p className="text-sm font-medium">MySQL</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <FaPython size={32} className="text-yellow-600 mb-2" />
+              <p className="text-sm font-medium">Python</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <FaJava size={32} className="text-yellow-600 mb-2" />
+              <p className="text-sm font-medium">Java</p>
+            </div>
+            <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
+              <FaCode size={32} className="text-gray-700 mb-2" />
+              <p className="text-sm font-medium">DSA</p>
             </div>
             <div className="p-4 bg-white shadow-md rounded-xl flex flex-col items-center">
               <FaGithub size={32} className="text-gray-700 mb-2" />

@@ -28,7 +28,7 @@ export default function Footer() {
           <a href="https://github.com/aadarshyadav11" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
             <FaGithub size={22} />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+          <a href="https://www.linkedin.com/in/aadarsh-yadav-80a49332b" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
             <FaLinkedin size={22} />
           </a>
           <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">

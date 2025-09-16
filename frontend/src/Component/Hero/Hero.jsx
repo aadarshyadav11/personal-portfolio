@@ -10,7 +10,7 @@ function Hero() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
             Hi, I’m <span className="text-blue-600">Aadarsh Yadav</span>
           </h1>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-5 text-lg text-gray-600 dark:text-gray-300">
             A passionate <span className="font-semibold">MERN Stack Developer, Software Engineer and Aspiring AI & ML Engineer </span> 
             I build modern and impactful web applications and Softwares with the MERN stack, Python, Java — blending creativity, performance, and clean code. 
           </p>
@@ -37,7 +37,7 @@ function Hero() {
           <img
             src="/Images/profile.jpg"
             alt="Profile-image"
-            className="w-120 h-128 rounded-full shadow-lg border-4 border-blue-600"
+            className="w-117 h-135 rounded-full shadow-lg border-4 border-blue-600"
           />
         </div>
       </div>
