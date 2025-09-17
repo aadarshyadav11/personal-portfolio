@@ -6,7 +6,7 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
         
         {/* Left Content */}
-        <div className="flex-1 text-center md:text-left">
+        <div className="flex-1 text-center md:text-left py-14">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
             Hi, I’m <span className="text-blue-600">Aadarsh Yadav</span>
           </h1>

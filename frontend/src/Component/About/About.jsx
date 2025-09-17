@@ -3,7 +3,7 @@ import {SiMongodb, SiMysql} from 'react-icons/si'
 
 export default function About() {
   return (
-    <section id="about" className="bg-gray-50 py-16 px-6">
+    <section id="about" className="bg-gray-50 py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
         
         {/* Left - Profile Image */}

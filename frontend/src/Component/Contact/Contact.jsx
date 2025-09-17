@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -16,13 +17,13 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // For now just simulate success (later connect to backend)
-    setStatus("loading");
-
-    setTimeout(() => {
+     try {
+      await axios.post("http://localhost:8080/api/messages", formData);
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    }, 2000);
+    } catch (err) {
+      setStatus("loading");
+    }
   };
 
   return (
