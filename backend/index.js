@@ -22,8 +22,10 @@ app.use(
     })
 )
 
+const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
-app.get('/',(req,res) => {
+
+app.get('*',(req,res) => {
     res.sendFile(path.join(__dirname,"frontend", "dist", "index.html"));
 });
 
@@ -33,9 +35,9 @@ app.use('/api/messages', messagesRouter);
 // Error handler 
 app.use(errorHandler);
 
-app.get('/',(req,res) => {
-    res.json({'message' : "Hello welcome in the backend development"});
-})
+// app.get('/',(req,res) => {
+//     res.json({'message' : "Hello welcome in the backend development"});
+// })
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
