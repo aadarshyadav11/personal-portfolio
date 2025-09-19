@@ -1,4 +1,4 @@
-require('dotenv').config();
+import dotenv from "dotenv";
 const express = require('express');
 const connectDB = require('./config/database');
 const cors = require('cors');
@@ -8,6 +8,7 @@ import path from "path";
 const messagesRouter = require('./routes/messages');
 const errorHandler = require('./middleware/errorHandler');
 
+dotenv.config();
 const app = express();
 
 // connect to database
