@@ -12,7 +12,7 @@ import errorHandler from './middleware/errorHandler.js';
 // Config
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ;
 
 // Fix __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -25,14 +25,14 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || '*', // Restrict in production
+    origin: process.env.CLIENT_URL, // Restrict in production
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
 
 // Serve static frontend (only when deployed)
 app.use(express.static(path.join(__dirname, '../frontend/dist')));
-app.get('*', (req, res) => {
+app.get('.*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
