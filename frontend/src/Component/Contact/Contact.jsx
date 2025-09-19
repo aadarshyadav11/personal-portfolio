@@ -18,7 +18,9 @@ export default function Contact() {
     e.preventDefault();
 
      try {
-      await axios.post("http://localhost:8080/api/messages", formData);
+      const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+      await axios.post(`${backendUrl}/api/messages`, formData);
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (err) {

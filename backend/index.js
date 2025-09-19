@@ -1,7 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/database');
-const cors = require('cors')
+const cors = require('cors');
+import path from "path";
 
 
 const messagesRouter = require('./routes/messages');
@@ -21,6 +22,11 @@ app.use(
     })
 )
 
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+app.get('*',(req,res) => {
+    res.sendFile(path.join(__dirname,"frontend", "dist", "index.html"));
+});
+
 // Routes
 app.use('/api/messages', messagesRouter);
 
@@ -31,7 +37,7 @@ app.get('/',(req,res) => {
     res.json({'message' : "Hello welcome in the backend development"});
 })
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
