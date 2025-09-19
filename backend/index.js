@@ -1,45 +1,53 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
-const connectDB =  require('./config/database');
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
+// Local imports
+import connectDB from './config/database.js';
+import messagesRouter from './routes/messages.js';
+import errorHandler from './middleware/errorHandler.js';
 
-const messagesRouter = require('./routes/messages');
-const errorHandler = require('./middleware/errorHandler');
-
-
+// Config
 dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-// connect to database
+// Fix __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Connect to database
 connectDB();
 
-// middleware
-app.use(express.json())
+// Middleware
+app.use(express.json());
 app.use(
-    cors({
-        origin : process.env.CLIENT_URL || '*', //restrict in production
-        methods : ['GET','POST','PUT','DELETE'],
-    })
-)
+  cors({
+    origin: process.env.CLIENT_URL || '*', // Restrict in production
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  })
+);
 
-app.use(express.static(path.join(__dirname, '/frontend/dist')));
-app.get('*',(req,res) => {
-    res.sendFile(path.join(__dirname,"frontend", "dist", "index.html"));
+// Serve static frontend (only when deployed)
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
-// Routes
+// API Routes
 app.use('/api/messages', messagesRouter);
 
-// Error handler 
+// Error Handler
 app.use(errorHandler);
 
-app.get('/',(req,res) => {
-    res.json({'message' : "Hello welcome in the backend development"});
-})
+// Health Check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Backend running 🚀' });
+});
 
-const PORT = process.env.PORT;
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-})
+  console.log(`✅ Server is running on port ${PORT}`);
+});
