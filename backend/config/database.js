@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
+const dotenv = require();
 
 async function connectDB(){
+    dotenv.config();
+
     const URI = process.env.MONGO_URI;
     if(!URI){
         throw new Error('MONGO_URI not set in env');

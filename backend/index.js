@@ -8,9 +8,9 @@ const path =  require('path');
 const messagesRouter = require('./routes/messages');
 const errorHandler = require('./middleware/errorHandler');
 
-dotenv.config();
-const app = express();
 
+const app = express();
+dotenv.config();
 // connect to database
 connectDB();
 
