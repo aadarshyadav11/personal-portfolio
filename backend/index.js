@@ -1,53 +1,43 @@
-import dotenv from 'dotenv';
-import express from 'express';
-import cors from 'cors';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+require('dotenv').config();
+const express = require('express');
+const connectDB = require('./config/database');
+const cors = require('cors');
+const path =  require('path');
 
-// Local imports
-import connectDB from './config/database.js';
-import messagesRouter from './routes/messages.js';
-import errorHandler from './middleware/errorHandler.js';
 
-// Config
-dotenv.config();
+const messagesRouter = require('./routes/messages');
+const errorHandler = require('./middleware/errorHandler');
+
 const app = express();
-const PORT = process.env.PORT ;
 
-// Fix __dirname in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Connect to database
+// connect to database
 connectDB();
 
-// Middleware
-app.use(express.json());
+// middleware
+app.use(express.json())
 app.use(
-  cors({
-    origin: process.env.CLIENT_URL, // Restrict in production
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  })
-);
+    cors({
+        origin : process.env.CLIENT_URL || '*', //restrict in production
+        methods : ['GET','POST','PUT','DELETE'],
+    })
+)
 
-// Serve static frontend (only when deployed)
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-app.get('.*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+app.get('*',(req,res) => {
+    res.sendFile(path.join(__dirname,"frontend", "dist", "index.html"));
 });
 
-// API Routes
+// Routes
 app.use('/api/messages', messagesRouter);
 
-// Error Handler
+// Error handler 
 app.use(errorHandler);
 
-// Health Check
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Backend running 🚀' });
-});
+app.get('/',(req,res) => {
+    res.json({'message' : "Hello welcome in the backend development"});
+})
 
-// Start server
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
+    console.log(`Server is running on http://localhost:${PORT}`);
+})

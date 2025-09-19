@@ -1,8 +1,7 @@
-function errorHandler(err, req, res, next) {
-  console.error(err);
-  res.status(err.status || 500).json({
-    message: err.message || 'Server error',
-  });
+function errorHandler(err, req, res, next){
+    console.error(err);
+    res.status(err.status || 500).json({message : err.message || 'Server error'});
+
 }
 
-export default errorHandler;
+module.exports = errorHandler;
