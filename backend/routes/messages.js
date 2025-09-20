@@ -1,6 +1,6 @@
-const express = require('express');
-const Message = require('../models/Message');
-const validator = require('validator');
+import express from 'express';
+import Message from'../models/Message';
+import validator from 'validator';
 
 const router = express.Router();
 
@@ -25,4 +25,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
