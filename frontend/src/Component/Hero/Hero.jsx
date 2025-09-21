@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Hero() {
   return (
     <section className="relative bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+      <div className="max-w-7xl mx-auto px-5 lg:px-15 flex flex-col md:flex-row items-center gap-7">
         
         {/* Left Content */}
         <div className="flex-1 text-center md:text-left py-14">
@@ -33,11 +33,11 @@ function Hero() {
         </div>
 
         {/* Right Image */}
-        <div className="flex-1 flex justify-center md:justify-end w-full h-full">
+        <div className="flex-1 flex justify-center md:justify-end h-80">
           <img
             src="/Images/profile.jpg"
             alt="Profile-image"
-            className="w-117 h-135 rounded-full shadow-lg border-4 border-blue-600"
+            className="w-85 h-85 rounded-full shadow-lg border-4 border-blue-600"
           />
         </div>
       </div>
